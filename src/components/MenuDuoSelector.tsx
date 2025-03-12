@@ -119,16 +119,16 @@ const MenuDuoSelector = ({
       animate={{ opacity: 1, height: "auto" }}
       exit={{ opacity: 0, height: 0 }}
       transition={{ duration: 0.3 }}
-      className="w-full bg-orange-50 rounded-lg p-6 shadow-md"
+      className="w-full bg-secondary/20 rounded-lg p-6 shadow-md"
     >
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold text-orange-800 flex items-center">
+        <h2 className="text-xl font-bold text-primary flex items-center">
           <Utensils className="mr-2 h-5 w-5" />
           Menu Duo Selection
         </h2>
         <Badge
           variant="outline"
-          className="bg-orange-100 text-orange-800 border-orange-300 px-3 py-1"
+          className="bg-secondary/30 text-primary border-primary/30 px-3 py-1"
         >
           Complete Your Meal
         </Badge>
@@ -136,17 +136,17 @@ const MenuDuoSelector = ({
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Sides Section */}
-        <Card className="bg-white border-orange-200">
+        <Card className="bg-white border-secondary">
           <CardContent className="pt-6">
             <div className="flex items-center mb-4">
-              <Pizza className="h-5 w-5 text-orange-600 mr-2" />
+              <Pizza className="h-5 w-5 text-accent mr-2" />
               <h3 className="text-lg font-semibold">Choose a Side</h3>
             </div>
             <div className="space-y-4">
               {sides.map((side) => (
                 <div
                   key={side.id}
-                  className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors ${selectedSides.includes(side.id) ? "bg-orange-100 border border-orange-300" : "bg-gray-50 hover:bg-gray-100 border border-gray-200"}`}
+                  className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors ${selectedSides.includes(side.id) ? "bg-secondary/30 border border-primary/30" : "bg-gray-50 hover:bg-gray-100 border border-gray-200"}`}
                   onClick={() => toggleSideSelection(side.id)}
                 >
                   <div className="w-16 h-16 rounded-md overflow-hidden mr-4">
@@ -165,7 +165,7 @@ const MenuDuoSelector = ({
                   <Switch
                     checked={selectedSides.includes(side.id)}
                     onCheckedChange={() => toggleSideSelection(side.id)}
-                    className="data-[state=checked]:bg-orange-500"
+                    className="data-[state=checked]:bg-accent"
                   />
                 </div>
               ))}
@@ -174,17 +174,17 @@ const MenuDuoSelector = ({
         </Card>
 
         {/* Drinks Section */}
-        <Card className="bg-white border-orange-200">
+        <Card className="bg-white border-secondary">
           <CardContent className="pt-6">
             <div className="flex items-center mb-4">
-              <Coffee className="h-5 w-5 text-orange-600 mr-2" />
+              <Coffee className="h-5 w-5 text-accent mr-2" />
               <h3 className="text-lg font-semibold">Choose a Drink</h3>
             </div>
             <div className="space-y-4">
               {drinks.map((drink) => (
                 <div
                   key={drink.id}
-                  className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors ${selectedDrinks.includes(drink.id) ? "bg-orange-100 border border-orange-300" : "bg-gray-50 hover:bg-gray-100 border border-gray-200"}`}
+                  className={`flex items-center p-3 rounded-lg cursor-pointer transition-colors ${selectedDrinks.includes(drink.id) ? "bg-secondary/30 border border-primary/30" : "bg-gray-50 hover:bg-gray-100 border border-gray-200"}`}
                   onClick={() => toggleDrinkSelection(drink.id)}
                 >
                   <div className="w-16 h-16 rounded-md overflow-hidden mr-4">
@@ -203,7 +203,7 @@ const MenuDuoSelector = ({
                   <Switch
                     checked={selectedDrinks.includes(drink.id)}
                     onCheckedChange={() => toggleDrinkSelection(drink.id)}
-                    className="data-[state=checked]:bg-orange-500"
+                    className="data-[state=checked]:bg-accent"
                   />
                 </div>
               ))}
@@ -215,7 +215,7 @@ const MenuDuoSelector = ({
       <div className="mt-6 flex justify-end">
         <Button
           variant="outline"
-          className="text-orange-600 border-orange-600 hover:bg-orange-50 mr-2"
+          className="text-accent border-accent hover:bg-accent/10 mr-2"
           onClick={() => {
             setSelectedSides([]);
             setSelectedDrinks([]);
@@ -225,7 +225,7 @@ const MenuDuoSelector = ({
           Clear Selection
         </Button>
         <Button
-          className="bg-orange-500 hover:bg-orange-600 text-white"
+          className="bg-accent hover:bg-accent/90 text-white"
           onClick={() => console.log("Selections confirmed")}
         >
           Confirm Selections

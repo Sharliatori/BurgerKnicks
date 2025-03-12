@@ -81,7 +81,7 @@ const CheckoutSection = ({
         transition={{ duration: 0.5 }}
         className="relative z-10 bg-white rounded-xl shadow-lg overflow-hidden"
       >
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-primary to-primary/80 p-6 text-white">
           <h2 className="text-3xl font-bold">Checkout</h2>
           <p className="text-orange-100">Complete your order</p>
         </div>
@@ -90,18 +90,18 @@ const CheckoutSection = ({
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center">
               <div
-                className={`rounded-full h-10 w-10 flex items-center justify-center ${currentStep === "review" ? "bg-orange-500 text-white" : "bg-orange-200 text-orange-700"}`}
+                className={`rounded-full h-10 w-10 flex items-center justify-center ${currentStep === "review" ? "bg-accent text-white" : "bg-secondary text-primary"}`}
               >
                 1
               </div>
               <div className="text-sm font-medium ml-2">Review Order</div>
             </div>
             <div
-              className={`h-1 w-16 mx-4 ${currentStep === "payment" || paymentSuccess ? "bg-orange-500" : "bg-gray-200"}`}
+              className={`h-1 w-16 mx-4 ${currentStep === "payment" || paymentSuccess ? "bg-accent" : "bg-gray-200"}`}
             ></div>
             <div className="flex items-center">
               <div
-                className={`rounded-full h-10 w-10 flex items-center justify-center ${currentStep === "payment" ? "bg-orange-500 text-white" : paymentSuccess ? "bg-green-500 text-white" : "bg-orange-200 text-orange-700"}`}
+                className={`rounded-full h-10 w-10 flex items-center justify-center ${currentStep === "payment" ? "bg-accent text-white" : paymentSuccess ? "bg-green-500 text-white" : "bg-secondary text-primary"}`}
               >
                 {paymentSuccess ? "✓" : "2"}
               </div>
@@ -133,7 +133,7 @@ const CheckoutSection = ({
                       <p className="text-gray-700 mb-2">
                         Your order will be ready for pickup in:
                       </p>
-                      <p className="text-2xl font-bold text-orange-600">
+                      <p className="text-2xl font-bold text-accent">
                         15-20 minutes
                       </p>
                       <p className="text-gray-500 mt-4">Pick up at:</p>
@@ -154,7 +154,7 @@ const CheckoutSection = ({
                     </Button>
                     <Button
                       onClick={handleContinueToPayment}
-                      className="bg-orange-500 hover:bg-orange-600 text-white flex items-center gap-2"
+                      className="bg-accent hover:bg-accent/90 text-white flex items-center gap-2"
                     >
                       Continue to Payment
                       <ArrowRight size={16} />

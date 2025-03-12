@@ -67,8 +67,8 @@ const BurgerPreview = ({
   );
 
   return (
-    <div className="bg-orange-50 p-8 rounded-lg shadow-lg w-full h-full flex flex-col items-center justify-center">
-      <h2 className="text-2xl font-bold text-orange-800 mb-6">
+    <div className="bg-secondary/20 p-8 rounded-lg shadow-lg w-full h-full flex flex-col items-center justify-center">
+      <h2 className="text-2xl font-bold text-primary mb-6">
         Your Burger Preview
       </h2>
 
@@ -119,7 +119,7 @@ const BurgerPreview = ({
           Drag and drop ingredients to customize your burger
         </p>
         <button
-          className="mt-4 bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-full transition-colors"
+          className="mt-4 bg-accent hover:bg-accent/90 text-white font-bold py-2 px-4 rounded-full transition-colors"
           onClick={() => console.log("Burger preview interaction")}
         >
           Looks Delicious!

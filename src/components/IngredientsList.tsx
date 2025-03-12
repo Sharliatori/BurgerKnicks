@@ -157,21 +157,21 @@ const IngredientsList = ({
   return (
     <div className="bg-white p-6 rounded-lg shadow-md w-full">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-orange-600">
+        <h2 className="text-2xl font-bold text-accent">
           Customize Your Burgers
         </h2>
         <div className="flex gap-2">
           <Button
             variant="outline"
             onClick={handleReset}
-            className="flex items-center gap-2 text-orange-600 border-orange-600 hover:bg-orange-50"
+            className="flex items-center gap-2 text-accent border-accent hover:bg-accent/10"
           >
             <RefreshCw size={16} />
             Reset All
           </Button>
           <Button
             onClick={addBurger}
-            className="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white"
+            className="flex items-center gap-2 bg-accent hover:bg-accent/90 text-white"
           >
             <PlusCircle size={16} />
             Add Burger
@@ -184,7 +184,7 @@ const IngredientsList = ({
           <p className="text-gray-500 mb-4">No burgers added yet</p>
           <Button
             onClick={addBurger}
-            className="bg-orange-500 hover:bg-orange-600 text-white"
+            className="bg-accent hover:bg-accent/90 text-white"
           >
             <Plus className="mr-2 h-4 w-4" />
             Add Your First Burger
@@ -194,8 +194,8 @@ const IngredientsList = ({
         <div className="space-y-6">
           {burgers.map((burger, index) => (
             <Card key={burger.id} className="border-orange-200">
-              <CardHeader className="flex flex-row items-center justify-between bg-orange-50 pb-2">
-                <CardTitle className="text-xl font-bold text-orange-800">
+              <CardHeader className="flex flex-row items-center justify-between bg-secondary/20 pb-2">
+                <CardTitle className="text-xl font-bold text-primary">
                   Burger #{index + 1}
                 </CardTitle>
                 <Button
@@ -244,7 +244,7 @@ const IngredientsList = ({
                   <div className="flex items-center justify-end">
                     <div className="text-right">
                       <p className="text-sm text-gray-500">Price</p>
-                      <p className="text-xl font-bold text-orange-600">
+                      <p className="text-xl font-bold text-accent">
                         ${burger.price.toFixed(2)}
                       </p>
                     </div>
@@ -301,7 +301,7 @@ const IngredientsList = ({
                 <p className="text-sm text-gray-500">
                   Total ({burgers.length} burgers)
                 </p>
-                <p className="text-2xl font-bold text-orange-600">
+                <p className="text-2xl font-bold text-accent">
                   ${calculateTotalPrice()}
                 </p>
               </div>

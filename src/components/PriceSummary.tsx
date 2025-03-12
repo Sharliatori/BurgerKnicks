@@ -74,7 +74,7 @@ const PriceSummary = ({
               <Switch
                 checked={menuDuo}
                 onCheckedChange={handleMenuDuoToggle}
-                className="data-[state=checked]:bg-orange-500"
+                className="data-[state=checked]:bg-accent"
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ const PriceSummary = ({
       <CardFooter>
         <Button
           onClick={onCheckout}
-          className="w-full bg-orange-500 hover:bg-orange-600 text-white"
+          className="w-full bg-accent hover:bg-accent/90 text-white"
         >
           <ShoppingCart className="mr-2 h-4 w-4" />
           Proceed to Checkout

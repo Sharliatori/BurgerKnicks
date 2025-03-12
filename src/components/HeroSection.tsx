@@ -30,14 +30,20 @@ const HeroSection = ({
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80">
         {/* Knicks-inspired color accents */}
-        <div className="absolute top-0 left-0 w-full h-2 bg-blue-600"></div>
-        <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500"></div>
+        <div
+          className="absolute top-0 left-0 w-full h-2"
+          style={{ backgroundColor: "hsl(var(--knicks-blue))" }}
+        ></div>
+        <div
+          className="absolute bottom-0 left-0 w-full h-2"
+          style={{ backgroundColor: "hsl(var(--knicks-orange))" }}
+        ></div>
       </div>
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 md:px-8 max-w-6xl mx-auto">
         <motion.h1
-          className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6"
+          className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#006BB6] mb-6 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -46,7 +52,7 @@ const HeroSection = ({
         </motion.h1>
 
         <motion.p
-          className="text-xl md:text-2xl text-gray-200 mb-12 max-w-3xl"
+          className="text-xl md:text-2xl text-[#BEC0C2] mb-12 max-w-3xl drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -61,7 +67,7 @@ const HeroSection = ({
         >
           <Button
             onClick={onScrollToCustomizer}
-            className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-6 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105"
+            className="bg-accent hover:bg-accent/90 text-white px-8 py-6 rounded-full text-lg font-bold transition-all duration-300 transform hover:scale-105"
           >
             Start Building
             <ArrowDown className="ml-2 h-5 w-5" />

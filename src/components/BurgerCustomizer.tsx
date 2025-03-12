@@ -77,14 +77,14 @@ const BurgerCustomizer = ({ onCheckout = () => {} }: BurgerCustomizerProps) => {
 
   return (
     <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <div className="relative bg-gradient-to-b from-orange-50 to-white p-6 md:p-10 rounded-xl shadow-lg w-full overflow-hidden">
+      <div className="relative bg-gradient-to-b from-secondary/30 to-white p-6 md:p-10 rounded-xl shadow-lg w-full overflow-hidden">
         {/* Animated Falling Emojis Background */}
         <FallingEmojis count={15} />
 
         <div className="relative z-10">
           {" "}
           {/* Content wrapper with higher z-index */}
-          <h1 className="text-3xl md:text-4xl font-bold text-orange-600 text-center mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold text-accent text-center mb-8">
             Build Your Perfect NYC Burger
           </h1>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
