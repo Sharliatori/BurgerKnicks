@@ -1,23 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-
-interface EmojiProps {
-  emoji: string;
-  x: number;
-  y: number;
-  rotation: number;
-  size: number;
-  duration: number;
-  delay: number;
-}
 
 interface FallingEmojisProps {
   count?: number;
 }
 
-const FallingEmojis = ({ count = 20 }: FallingEmojisProps) => {
-  const [emojis, setEmojis] = useState<EmojiProps[]>([]);
+const FallingEmojis: React.FC<FallingEmojisProps> = ({ count = 10 }) => {
+  const [emojis, setEmojis] = useState<
+    Array<{ id: number; emoji: string; x: number; delay: number }>
+  >([]);
 
+  // Available emojis for the animation
   const availableEmojis = [
     "🍔",
     "🗽",
@@ -28,54 +21,43 @@ const FallingEmojis = ({ count = 20 }: FallingEmojisProps) => {
     "🧅",
     "🥤",
     "🎤",
+    "🥬",
+    "🍩",
   ];
 
   useEffect(() => {
-    const newEmojis: EmojiProps[] = [];
-
-    for (let i = 0; i < count; i++) {
-      newEmojis.push({
-        emoji:
-          availableEmojis[Math.floor(Math.random() * availableEmojis.length)],
-        x: Math.random() * 100, // random x position (0-100%)
-        y: -20 - Math.random() * 100, // start above the viewport
-        rotation: Math.random() * 360,
-        size: 16 + Math.random() * 24, // random size between 16-40px
-        duration: 10 + Math.random() * 20, // random duration between 10-30s
-        delay: Math.random() * 30, // random delay for staggered start
-      });
-    }
-
+    // Generate random emojis with positions
+    const newEmojis = Array.from({ length: count }, (_, i) => ({
+      id: i,
+      emoji:
+        availableEmojis[Math.floor(Math.random() * availableEmojis.length)],
+      x: Math.random() * 100, // Random horizontal position (0-100%)
+      delay: Math.random() * 5, // Random delay for animation start
+    }));
     setEmojis(newEmojis);
   }, [count]);
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {emojis.map((emoji, index) => (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {emojis.map((item) => (
         <motion.div
-          key={index}
-          className="absolute"
-          initial={{
-            x: `${emoji.x}vw`,
-            y: `${emoji.y}vh`,
-            rotate: emoji.rotation,
-          }}
+          key={item.id}
+          className="absolute text-2xl opacity-20"
+          style={{ left: `${item.x}%` }}
+          initial={{ y: -50, opacity: 0 }}
           animate={{
-            y: "120vh",
-            rotate: emoji.rotation + 360 * Math.floor(2 + Math.random() * 3),
+            y: "110vh",
+            opacity: [0, 0.5, 0.2],
+            rotate: [0, 10, -10, 0],
           }}
           transition={{
-            duration: emoji.duration,
-            delay: emoji.delay,
+            duration: 15 + Math.random() * 10,
+            delay: item.delay,
             repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{
-            fontSize: `${emoji.size}px`,
-            opacity: 0.7,
+            repeatType: "loop",
           }}
         >
-          {emoji.emoji}
+          {item.emoji}
         </motion.div>
       ))}
     </div>
